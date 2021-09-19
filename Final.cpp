@@ -1,9 +1,19 @@
+//Universidad Católica San Pablo
+//curso: Ciencias de la Computación CCOMP2 -1
+//Grupo:
+//    - Alexander Rafael Murillo Castillo
+//    - Jaime Mateo Gutierrez Muñoz
+//    - Emmanuel Del Piero Martinez Salcedo
+//Profesor:
+//    - DSc. Manuel Eduardo Loaiza Fernández 
+//Semestre 2021 - II
+//Arequipa - Perú
+
 #include <iostream>
-#include <conio.h>
 using namespace std; 
 
 
-int main() {
+int main() { //Introducción de variables
   int game_turns = 0; 
   char x1(' '),x2(' '),x3(' '), x4(' '),x5(' '),x6(' '),x7(' '), x8(' '),x9(' '),letra(' '),numero(' '),simbolo_1,simbolo_2,p1[50],p2[50];
   bool player_1(true),game(true),turn(true);
