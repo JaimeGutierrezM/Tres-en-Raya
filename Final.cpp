@@ -8,6 +8,8 @@
 //    - DSc. Manuel Eduardo Loaiza Fernández 
 //Semestre 2021 - II
 //Arequipa - Perú
+//
+//GITHUB: https://github.com/JaimeGutierrezM/Tres-en-Raya
 
 #include <iostream>
 using namespace std; 
