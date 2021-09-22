@@ -21,7 +21,7 @@ using namespace std;
 int main() { //Introducción de variables
   int game_turns = 0,turno_inicial_random, coord_bot = 0; 
   char x1(' '),x2(' '),x3(' '), x4(' '),x5(' '),x6(' '),x7(' '), x8(' '),x9(' '),letra(' '),numero(' '),simbolo_1,simbolo_2,p1[50],p2[50];
-  bool player_1(true),game(true),turn(true);
+  bool player_1(true),game(true),turn(true),prioridad_bot(true),jugada_random(true);
   srand(time(0));
   std::cout << "\n\n       BIENVENIDO A TRES EN RAYA\n\n";
 
@@ -156,13 +156,13 @@ int main() { //Introducción de variables
       }
     }
     // cuenta los turnos y se terminan al llenar las 9 casillas 
-    if (game_turns != 8)
+    if (game_turns != 9)
     {
       game_turns += 1;
     } 
     else {
       cout << "EMPATE";
-      game = false;
+      break;
     }
 
 
@@ -176,177 +176,317 @@ int main() { //Introducción de variables
         std::cin >> letra;
         //identificar la coordenada por letra y número para cambiar la variable y se muestre en el tablero
         switch (numero) { 
-            case '1': //case para el nuemro de coordenada
-            if (letra =='A'||letra=='a') { //identificar la letra de coordenada
-                if (x1 != ' ') {  //identificar si la coordenada ya esta ocupada.
-                std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+            case '1': //case para el numero de coordenada
+                if (letra =='A'||letra=='a') { //identificar la letra de coordenada
+                    if (x1 != ' ') {  //identificar si la coordenada ya esta ocupada.
+                    std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                    } 
+                    else { //Cambia la variable según la coordenada y el jugador
+                    x1 = simbolo_1;
+                    player_1 = false;
+                    turn = false;
+                    }
                 } 
-                else { //Cambia la variable según la coordenada y el jugador
-                x1 = simbolo_1;
-                player_1 = false;
-                turn = false;
-                }
-            } 
-            else if (letra =='B'||letra=='b'){ //identificar la letra de coordenada
-                if (x2 != ' ') {
-                std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                else if (letra =='B'||letra=='b'){ //identificar la letra de coordenada
+                    if (x2 != ' ') {
+                    std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                    } 
+                    else { //Cambia la variable según la coordenada y el jugador
+                    x2 = simbolo_1;
+                    player_1 = false;
+                    turn = false;
+                    }
                 } 
-                else { //Cambia la variable según la coordenada y el jugador
-                x2 = simbolo_1;
-                player_1 = false;
-                turn = false;
-                }
-            } 
-            else if (letra =='C'||letra=='c'){ //identificar la letra de coordenada
-                if (x3 != ' ') {
-                std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                else if (letra =='C'||letra=='c'){ //identificar la letra de coordenada
+                    if (x3 != ' ') {
+                    std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                    } 
+                    else { //Cambia la variable según la coordenada y el jugador
+                    x3 = simbolo_1;
+                    player_1 = false;
+                    turn = false;
+                    }
                 } 
-                else { //Cambia la variable según la coordenada y el jugador
-                x3 = simbolo_1;
-                player_1 = false;
-                turn = false;
+                else { // si el número  es correcto pero no la letra
+                    std::cout << "\n\ningrese una letra correcta\n\n";
                 }
-            } 
-            else { // si el número  es correcto pero no la letra
-                std::cout << "\n\ningrese una letra correcta\n\n";
-            }
-            break;
+                break;
             case '2':
-            if (letra =='A'||letra=='a') { //identificar la letra de coordenada
-                if (x4 != ' ') {
-                std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                if (letra =='A'||letra=='a') { //identificar la letra de coordenada
+                    if (x4 != ' ') {
+                    std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                    } 
+                    else { //Cambia la variable según la coordenada y el jugador
+                    x4 = simbolo_1;
+                    player_1 = false;
+                    turn = false;
+                    }
                 } 
-                else { //Cambia la variable según la coordenada y el jugador
-                x4 = simbolo_1;
-                player_1 = false;
-                turn = false;
-                }
-            } 
-            else if (letra =='B'||letra=='b'){ //identificar la letra de coordenada
-                if (x5 != ' ') {
-                std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                else if (letra =='B'||letra=='b'){ //identificar la letra de coordenada
+                    if (x5 != ' ') {
+                    std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                    } 
+                    else { //Cambia la variable según la coordenada y el jugador
+                    x5 = simbolo_1;
+                    player_1 = false;
+                    turn = false;
+                    }
                 } 
-                else { //Cambia la variable según la coordenada y el jugador
-                x5 = simbolo_1;
-                player_1 = false;
-                turn = false;
-                }
-            } 
-            else if (letra =='C'||letra=='c'){ //identificar la letra de coordenada
-                if (x6 != ' ') {
-                std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                else if (letra =='C'||letra=='c'){ //identificar la letra de coordenada
+                    if (x6 != ' ') {
+                    std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                    } 
+                    else { //Cambia la variable según la coordenada y el jugador
+                    x6 = simbolo_1;
+                    player_1 = false;
+                    turn = false;
+                    }
                 } 
-                else { //Cambia la variable según la coordenada y el jugador
-                x6 = simbolo_1;
-                player_1 = false;
-                turn = false;
+                else { // si el número  es correcto pero no la letra
+                    std::cout << "\n\ningrese una letra correcta\n\n";
                 }
-            } 
-            else { // si el número  es correcto pero no la letra
-                std::cout << "\n\ningrese una letra correcta\n\n";
-            }
-            break;
+                break;
             case '3':
-            if (letra =='A'||letra=='a') { //identificar la letra de coordenada
-                if (x7 != ' ') {
-                std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                if (letra =='A'||letra=='a') { //identificar la letra de coordenada
+                    if (x7 != ' ') {
+                    std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                    } 
+                    else { //Cambia la variable según la coordenada y el jugador
+                    x7 = simbolo_1;
+                    player_1 = false;
+                    turn = false;
+                    }
                 } 
-                else { //Cambia la variable según la coordenada y el jugador
-                x7 = simbolo_1;
-                player_1 = false;
-                turn = false;
-                }
-            } 
-            else if (letra =='B'||letra=='b'){ //identificar la letra de coordenada
-                if (x8 != ' ') {
-                std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                else if (letra =='B'||letra=='b'){ //identificar la letra de coordenada
+                    if (x8 != ' ') {
+                    std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                    } 
+                    else { //Cambia la variable según la coordenada y el jugador
+                    x8 = simbolo_1;
+                    player_1 = false;
+                    turn = false;
+                    }
                 } 
-                else { //Cambia la variable según la coordenada y el jugador
-                x8 = simbolo_1;
-                player_1 = false;
-                turn = false;
-                }
-            } 
-            else if (letra =='C'||letra=='c'){ //identificar la letra de coordenada
-                if (x9 != ' ') {
-                std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                else if (letra =='C'||letra=='c'){ //identificar la letra de coordenada
+                    if (x9 != ' ') {
+                    std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
+                    } 
+                    else { //Cambia la variable según la coordenada y el jugador
+                    x9 = simbolo_1;
+                    player_1 = false;
+                    turn = false;
+                    }
                 } 
-                else { //Cambia la variable según la coordenada y el jugador
-                x9 = simbolo_1;
-                player_1 = false;
-                turn = false;
+                else { // si el número  es correcto pero no la letra
+                    std::cout << "\n\ningrese una letra correcta\n\n";
                 }
-            } 
-            else { // si el número  es correcto pero no la letra
-                std::cout << "\n\ningrese una letra correcta\n\n";
-            }
-            break;
+                break;
             default: // si la letra como en número de coordenada ingresado es incorrecto
-            if (letra =='A'||letra=='a') {
-                std::cout << "\n\ningrese un número de coordenada correcto\n\n";
-            } 
-            else if (letra =='B'||letra=='b'){
-                std::cout << "\n\ningrese un número de coordenada correcto\n\n";
-            } 
-            else if (letra =='C'||letra=='c'){
-                std::cout << "\n\ningrese un número de coordenada correcto\n\n";
-            } 
-            else {
-                std::cout << "\n\ningrese la letra y el número de coordenada correctos\n\n";
-            }
+                if (letra =='A'||letra=='a') {
+                    std::cout << "\n\ningrese un número de coordenada correcto\n\n";
+                } 
+                else if (letra =='B'||letra=='b'){
+                    std::cout << "\n\ningrese un número de coordenada correcto\n\n";
+                } 
+                else if (letra =='C'||letra=='c'){
+                    std::cout << "\n\ningrese un número de coordenada correcto\n\n";
+                } 
+                else {
+                    std::cout << "\n\ningrese la letra y el número de coordenada correctos\n\n";
+                }
         }
       } 
       else {
+            jugada_random = true;
+            prioridad_bot = false;
+            if (x1==x2 && x3==' ' && x1!=' ' && prioridad_bot==false) {
+                if (x3 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='1'; letra='C'; 
+                jugada_random = false;
+            } 
+            if (x1==x3 && x2==' ' && x1!=' ' && prioridad_bot==false) {
+                if (x1 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='1';letra='B'; 
+                jugada_random = false;
+            } 
+            if (x2==x3 && x1==' ' && x2!=' ' && prioridad_bot==false) {
+                if (x2 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='1';letra='A'; 
+                jugada_random = false;
+            } 
 
-            while (true) {
-                coord_bot = 1+ (rand()%9);
-                if (coord_bot == 1 && x1 == ' ') {x1 = simbolo_2; break;}
-                else if (coord_bot == 2 && x2 == ' ') {x2=simbolo_2; turn=false; player_1=true; break;}
-                else if (coord_bot == 3 && x3 == ' ') {x3=simbolo_2; turn=false; player_1=true; break;}
-                else if (coord_bot == 4 && x4 == ' ') {x4=simbolo_2; turn=false; player_1=true; break;}
-                else if (coord_bot == 5 && x5 == ' ') {x5=simbolo_2; turn=false; player_1=true; break;}
-                else if (coord_bot == 6 && x6 == ' ') {x6=simbolo_2; turn=false; player_1=true; break;}
-                else if (coord_bot == 7 && x7 == ' ') {x7=simbolo_2; turn=false; player_1=true; break;}
-                else if (coord_bot == 8 && x8 == ' ') {x8=simbolo_2; turn=false; player_1=true; break;}
-                else if (coord_bot == 9 && x9 == ' ') {x9=simbolo_2; turn=false; player_1=true; break;}
+            if (x4==x5 && x6==' ' && x4!=' ' && prioridad_bot==false) {
+                if (x4 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='2';letra='C'; 
+                jugada_random = false;
+            } 
+            if (x4==x6 && x5==' ' && x4!=' ' && prioridad_bot==false) {
+                if (x4 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='2';letra='B'; 
+                jugada_random = false;
+            } 
+            if (x5==x6 && x4==' ' && x5!= ' ' && prioridad_bot==false) {
+                if (x5 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='2';letra='A'; 
+                jugada_random = false;
+            } 
+
+            if (x7==x8 && x9==' ' && x7!= ' ' && prioridad_bot==false) {
+                if (x7 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='3';letra='C'; 
+                jugada_random = false;
+            } 
+            if (x7==x9 && x8==' ' && x7!=' ' && prioridad_bot==false) {
+                if (x7 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='3';letra='B'; 
+                jugada_random = false;
+            } 
+            if (x8==x9 && x7==' ' && x8!=' ' && prioridad_bot==false) {
+                if (x8 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='3';letra='A';
+                jugada_random = false;
+            } 
+
+            if (x1==x4 && x7==' ' && x1!=' ' && prioridad_bot==false) {
+                if (x1 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='3';letra='A';
+                jugada_random = false;
+            } 
+            if (x1==x7 && x4==' ' && x1!=' ' && prioridad_bot==false) {
+                cout << "asdasd" << endl;
+                if (x1 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='2';letra='A'; 
+                jugada_random = false;
+            } 
+            if (x4==x7 && x1==' ' && x4!=' ' && prioridad_bot==false) {
+                if (x4 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='1';letra='A'; 
+                jugada_random = false;
+            } 
+
+            if (x2==x5 && x8==' ' && x2!=' ' && prioridad_bot==false) {
+                if (x2 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='3';letra='B'; 
+                jugada_random = false;
+            } 
+            if (x2==x8 && x5==' ' && x2!=' ' && prioridad_bot==false) {
+                if (x2 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='2';letra='B'; 
+                jugada_random = false;
+            } 
+            if (x5==x8 && x2==' ' && x5!=' ' && prioridad_bot==false) {
+                if (x5 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='1';letra='B'; 
+                jugada_random = false;
+            } 
+                
+            if (x3==x6 && x9==' ' && x3!=' ' && prioridad_bot==false) {
+                if (x3 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='3';letra='C';
+                jugada_random = false;
+            } 
+            if (x3==x9 && x6==' ' && x3!=' ' && prioridad_bot==false) {
+                if (x3 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='2';letra='C'; 
+                jugada_random = false;
+            } 
+            if (x6==x9 && x3==' ' && x6!=' ' && prioridad_bot==false) {
+                if (x6 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='1';letra='C'; 
+                jugada_random = false;
+            } 
+
+            if (x1==x5 && x9==' ' && x1!=' ' && prioridad_bot==false) {
+                if (x1 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='3';letra='C'; 
+                jugada_random = false;
+            } 
+            if (x1==x9 && x5==' ' && x1!=' ' && prioridad_bot==false) {
+                if (x1 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='2';letra='B'; 
+                jugada_random = false;
+            } 
+            if (x5==x9 && x1==' ' && x5!=' ' && prioridad_bot==false) {
+                if (x5 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='1';letra='A';
+                jugada_random = false;
+            } 
+
+            if (x3==x5 && x7==' ' && x3!=' ' && prioridad_bot==false) {
+                if (x3 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='3';letra='A';
+                jugada_random = false;
+            } 
+            if (x3==x7 && x5==' ' && x3!=' ' && prioridad_bot==false) {
+                if (x3 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='2';letra='B'; 
+                jugada_random = false;
+            } 
+            if (x5==x7 && x3==' ' && x5!=' ' && prioridad_bot==false) {
+                if (x5 == simbolo_1) {prioridad_bot=false;} 
+                else {prioridad_bot=true;}
+                numero='1';letra='C'; 
+                jugada_random = false;
+            } 
+
+            while (jugada_random) { //loop para jugadas random de la máquina
+                coord_bot = 1 + (rand()%9);
+                if (coord_bot==1 && x1==' ') {x1=simbolo_2; prioridad_bot=false; break;}
+                else if (coord_bot==2 && x2==' ') {x2=simbolo_2; prioridad_bot=false; break;}
+                else if (coord_bot==3 && x3==' ') {x3=simbolo_2; prioridad_bot=false; break;}
+                else if (coord_bot==4 && x4==' ') {x4=simbolo_2; prioridad_bot=false; break;}
+                else if (coord_bot==5 && x5==' ') {x5=simbolo_2; prioridad_bot=false; break;}
+                else if (coord_bot==6 && x6==' ') {x6=simbolo_2; prioridad_bot=false; break;}
+                else if (coord_bot==7 && x7==' ') {x7=simbolo_2; prioridad_bot=false; break;}
+                else if (coord_bot==8 && x8==' ') {x8=simbolo_2; prioridad_bot=false; break;}
+                else if (coord_bot==9 && x9==' ') {x9=simbolo_2; prioridad_bot=false; break;}
+            }
+        
+            
+            // comprobar la jugada del con prioridad o sin prioridad
+            if (jugada_random==false) {
+                if (numero=='1') {
+                    if (letra=='A') {x1=simbolo_2;}
+                    else if (letra=='B') {x2=simbolo_2;}
+                    else if (letra=='C') {x3=simbolo_2;}
+                }
+                else if (numero=='2') {
+                    if (letra=='A') {x4=simbolo_2;cout << "true" << endl;}
+                    else if (letra=='B') {x5=simbolo_2;}
+                    else if (letra=='C') {x6=simbolo_2;}
+                }
+                else if (numero=='3') {
+                    if (letra=='A') {x7=simbolo_2;}
+                    else if (letra=='B') {x8=simbolo_2;}
+                    else if (letra=='C') {x9=simbolo_2;}
+                }
             }
 
-            if (x1 == x2 && x3 == ' ') {coord_bot=3; } 
-            else if (x1 == x3 && x2 == ' ') {}
-            else if (x2 == x3 && x1 == ' ') {}
-
-            else if (x4 == x5 && x6 == ' ') {}
-            else if (x4 == x6 && x5 == ' ') {}
-            else if (x5 == x6 && x4 == ' ') {}
-
-            else if (x7 == x8 && x9 == ' ') {}
-            else if (x7 == x9 && x8 == ' ') {}
-            else if (x8 == x9 && x7 == ' ') {}
-
-            else if (x1 == x4 && x7 == ' ') {}
-            else if (x1 == x7 && x4 == ' ') {}
-            else if (x4 == x7 && x1 == ' ') {}
-
-            else if (x2 == x5 && x8 == ' ') {}
-            else if (x2 == x8 && x5 == ' ') {}
-            else if (x5 == x8 && x2 == ' ') {}
-                
-            else if (x3 == x6 && x9 == ' ') {}
-            else if (x3 == x9 && x6 == ' ') {}
-            else if (x6 == x9 && x3 == ' ') {}
-
-            else if (x1 == x5 && x9 == ' ') {}
-            else if (x1 == x9 && x5 == ' ') {}
-            else if (x5 == x9 && x1 == ' ') {}
-
-            else if (x3 == x5 && x7 == ' ') {}
-            else if (x3 == x7 && x5 == ' ') {}
-            else if (x5 == x7 && x3 == ' ') {}
-
-            else {}
-
-
-            std::cout <<"\nBot hizo la jugada: "<<endl;
+            turn=false; player_1=true;
+            std::cout <<"\nBot hizo su jugada "<<endl;
         
       }
         
