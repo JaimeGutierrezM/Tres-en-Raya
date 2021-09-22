@@ -14,6 +14,10 @@
 #include <iostream>
 using namespace std; 
 
+//Emmanuel del Piero Martinez Salcedo
+//Jaime Mateo Gutierrez Muñoz
+//Alexander Rafael Murillo Castillo
+
 
 int main() { //Introducción de variables
   int game_turns = 0; 
