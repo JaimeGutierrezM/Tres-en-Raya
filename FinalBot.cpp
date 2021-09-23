@@ -19,13 +19,18 @@ using namespace std;
 
 
 int main() { //Introducción de variables
+    // game turns -> para identificar los empates; turno_inicial_random -> para idenficar aleatoriamente quien empieza; coord_bot -> para saber la jugada que hará el bot
+    // x1, ... x9 -> las casillas del tablero; letra y número -> identificar la casilla
+    //player_1 -> identificar el turno del jugador(true) o de la máquina(false); game -> loop para identificar las ganadas y dentro se encuentra el loop turn -> para identificar los turnos del jugador e ingresen sus fichas
+    // prioridad_bot -> para hacer que el bot priorize una jugada que la otra (ejemplo el jugador ganará en el siguiente turno, pero en el turno de la máquina este gana, entonces prioriza mas su ficha ganadora que la del jugador)
+    //jugada_random -> si la máquina no tiene una casilla definida para ganar o cancelar al jugador lanza su ficha random
     int game_turns = 0,turno_inicial_random, coord_bot = 0; 
     char x1(' '),x2(' '),x3(' '), x4(' '),x5(' '),x6(' '),x7(' '), x8(' '),x9(' '),letra(' '),numero(' '),simbolo_1,simbolo_2,p1[50],p2[50];
     bool player_1(true),game(true),turn(true),prioridad_bot(true),jugada_random(true);
     srand(time(0));
     std::cout << "\n\n       BIENVENIDO A TRES EN RAYA\n\n";
 
-    //seleccion de nombre   """get solución"""""
+    //seleccion de nombre del jugador
     cout << "\nJugador, ingrese su nombre: ";
     cin.getline(p1,50);
 
@@ -37,7 +42,14 @@ int main() { //Introducción de variables
             simbolo_2 = 'O'; // si se escoge un símbolo entonces al siguiente jugador se ele asigna el que queda
             cout << "Bien, Bot jugará con "<< simbolo_2;
             break;
-        } else {
+        }
+        else if (simbolo_1=='O'||simbolo_1=='o') {
+            simbolo_1 = 'O'; 
+            simbolo_2 = 'X'; 
+            cout << "Bien, Bot jugará con "<< simbolo_2;
+            break;
+        } 
+        else {
             cout << "Por favor, seleccione el simbolo X o O\n";
         }
     }
@@ -53,7 +65,7 @@ int main() { //Introducción de variables
         cout << "\n Primera jugada la inicia Bot "<< endl;
     }
 
-    //loop del juego para imprimir el tablero e identificar las posibles ganadas por cada turno; y un loop dentro para el ingreso de coordenadas e identificar sus errores 
+    //loop del juego para imprimir el tablero e identificar las posibles ganadas por cada turno; y un loop dentro para el ingreso de coordenadas e identificar sus errores del jugador, también identifica las jugadas de la máquina
     cout << "\n\n          EMPECEMOS\n";
     while(game){ 
         //tablero
@@ -145,21 +157,21 @@ int main() { //Introducción de variables
             break;
             }
         }
-        // cuenta los turnos y se terminan al llenar las 9 casillas 
+        // cuenta los turnos y se termina al llenar las 9 casillas 
         if (game_turns != 9) {
             game_turns += 1;
         } 
         else {
-            cout << "EMPATE";
+            cout << "\nEMPATE\n";
             break;
         }
 
 
-        // loop para el ingreso de coordenadas según los turnos  
+        // loop para el ingreso de coordenadas y la jugada de la máquina según player_1[true/false]
         turn = true;    
         while(turn){
-            if (player_1 == true) { //coordenadas de numeros según el turno de jugador 
-                std::cout <<"\n"<<p1 <<", ingrese el número de coordenada: ";
+            if (player_1 == true) { //condicional para el turno del jugador -> ingreso e identificar las coordenadas del jugador
+                std::cout <<"\n"<<p1 <<", ingrese el número de coordenada: "; //ingreso de la coordenada de numero
                 std::cin >> numero;  
                 std::cout << "\nIngrese la letra de coordenada: "; //ingreso de la coordenada de letra 
                 std::cin >> letra;
@@ -170,7 +182,7 @@ int main() { //Introducción de variables
                             if (x1 != ' ') {  //identificar si la coordenada ya esta ocupada.
                             std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
                             } 
-                            else { //Cambia la variable según la coordenada y el jugador
+                            else { //Cambia la variable según la coordenada, cambiar player_1 para el turno de la máquina y romper el loop
                             x1 = simbolo_1;
                             player_1 = false;
                             turn = false;
@@ -180,7 +192,7 @@ int main() { //Introducción de variables
                             if (x2 != ' ') {
                             std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
                             } 
-                            else { //Cambia la variable según la coordenada y el jugador
+                            else { //Cambia la variable según la coordenada, cambiar player_1 para el turno de la máquina y romper el loop
                             x2 = simbolo_1;
                             player_1 = false;
                             turn = false;
@@ -190,7 +202,7 @@ int main() { //Introducción de variables
                             if (x3 != ' ') {
                             std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
                             } 
-                            else { //Cambia la variable según la coordenada y el jugador
+                            else { //Cambia la variable según la coordenada, cambiar player_1 para el turno de la máquina y romper el loop
                             x3 = simbolo_1;
                             player_1 = false;
                             turn = false;
@@ -206,7 +218,7 @@ int main() { //Introducción de variables
                             if (x4 != ' ') {
                             std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
                             } 
-                            else { //Cambia la variable según la coordenada y el jugador
+                            else { //Cambia la variable según la coordenada, cambiar player_1 para el turno de la máquina y romper el loop
                             x4 = simbolo_1;
                             player_1 = false;
                             turn = false;
@@ -216,7 +228,7 @@ int main() { //Introducción de variables
                             if (x5 != ' ') {
                             std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
                             } 
-                            else { //Cambia la variable según la coordenada y el jugador
+                            else { //Cambia la variable según la coordenada, cambiar player_1 para el turno de la máquina y romper el loop
                             x5 = simbolo_1;
                             player_1 = false;
                             turn = false;
@@ -226,7 +238,7 @@ int main() { //Introducción de variables
                             if (x6 != ' ') {
                             std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
                             } 
-                            else { //Cambia la variable según la coordenada y el jugador
+                            else { //Cambia la variable según la coordenada, cambiar player_1 para el turno de la máquina y romper el loop
                             x6 = simbolo_1;
                             player_1 = false;
                             turn = false;
@@ -242,7 +254,7 @@ int main() { //Introducción de variables
                             if (x7 != ' ') {
                             std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
                             } 
-                            else { //Cambia la variable según la coordenada y el jugador
+                            else { //Cambia la variable según la coordenada, cambiar player_1 para el turno de la máquina y romper el loop
                             x7 = simbolo_1;
                             player_1 = false;
                             turn = false;
@@ -252,7 +264,7 @@ int main() { //Introducción de variables
                             if (x8 != ' ') {
                             std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
                             } 
-                            else { //Cambia la variable según la coordenada y el jugador
+                            else { //Cambia la variable según la coordenada, cambiar player_1 para el turno de la máquina y romper el loop
                             x8 = simbolo_1;
                             player_1 = false;
                             turn = false;
@@ -262,7 +274,7 @@ int main() { //Introducción de variables
                             if (x9 != ' ') {
                             std::cout << "\n\nEsta casilla ya esta ocupada\n\n";
                             } 
-                            else { //Cambia la variable según la coordenada y el jugador
+                            else { //Cambia la variable según la coordenada, cambiar player_1 para el turno de la máquina y romper el loop
                             x9 = simbolo_1;
                             player_1 = false;
                             turn = false;
@@ -273,7 +285,7 @@ int main() { //Introducción de variables
                         }
                         break;
 
-                    default: // si la letra como en número de coordenada ingresado es incorrecto
+                    default: // si la letra como el número de coordenada ingresado es incorrecto
                         if (letra =='A'||letra=='a') {
                             std::cout << "\n\ningrese un número de coordenada correcto\n\n";
                         } 
@@ -288,13 +300,15 @@ int main() { //Introducción de variables
                         }
                 }
             } 
-            else {
-                jugada_random = true;
-                prioridad_bot = false;
-                if (x1==x2 && x3==' ' && x1!=' ' && prioridad_bot==false) {
+            // condicional de la máquina, si player_1 es falso empieza el turno de la máquina donde identificada su jugada para ganar, para cancelar la casilla ganadora del jugador o para ingresar una ficha random
+            else { 
+                jugada_random = true; // restablece la jugada random por si en una condicional se le coloco false
+                prioridad_bot = false; // restablece la prioridad por si en una condicional se encontro una jugada ganadora
+                //idenfica la casilla ganadora del jugador o prioriza la ficha ganadora de la máquina. Si prioridad_bot es falso buscará las siguientes jugadas donde el jugador pueda ganar y colocará su ficha, si encuentra una jugada donde la máquina gane prioridad_bot será verdadero y las demás busquedas ya no se harán. Al no encontrar nada pasará al loop de jugada random    
+                if (x1==x2 && x3==' ' && x1!=' ' && prioridad_bot==false) { 
                     if (x3 == simbolo_2) {prioridad_bot=true;} 
                     numero='1'; letra='C'; 
-                    jugada_random = false;
+                    jugada_random = false; // para cancelar el loop de buscar una jugada random
                 } 
                 if (x1==x3 && x2==' ' && x1!=' ' && prioridad_bot==false) {
                     if (x1 == simbolo_2) {prioridad_bot=true;} 
@@ -412,21 +426,7 @@ int main() { //Introducción de variables
                     jugada_random = false;
                 } 
 
-                while (jugada_random) { //loop para jugadas random de la máquina
-                    coord_bot = 1 + (rand()%9);
-                    if (coord_bot==1 && x1==' ') {x1=simbolo_2; prioridad_bot=false; break;}
-                    else if (coord_bot==2 && x2==' ') {x2=simbolo_2; prioridad_bot=false; break;}
-                    else if (coord_bot==3 && x3==' ') {x3=simbolo_2; prioridad_bot=false; break;}
-                    else if (coord_bot==4 && x4==' ') {x4=simbolo_2; prioridad_bot=false; break;}
-                    else if (coord_bot==5 && x5==' ') {x5=simbolo_2; prioridad_bot=false; break;}
-                    else if (coord_bot==6 && x6==' ') {x6=simbolo_2; prioridad_bot=false; break;}
-                    else if (coord_bot==7 && x7==' ') {x7=simbolo_2; prioridad_bot=false; break;}
-                    else if (coord_bot==8 && x8==' ') {x8=simbolo_2; prioridad_bot=false; break;}
-                    else if (coord_bot==9 && x9==' ') {x9=simbolo_2; prioridad_bot=false; break;}
-                }
-                
-                    
-                // comprobar la jugada del con prioridad o sin prioridad
+                // comprobar la jugada que se hizo en los condicionales para marcarlo en el tablero 
                 if (jugada_random==false) {
                     if (numero=='1') {
                         if (letra=='A') {x1=simbolo_2;}
@@ -445,12 +445,22 @@ int main() { //Introducción de variables
                     }
                 }
 
-                turn=false; player_1=true;
+                while (jugada_random) { //loop para jugadas random de la máquina, por si no se encontro una jugada con los condicionales y rompe el loop
+                    coord_bot = 1 + (rand()%9);
+                    if (coord_bot==1 && x1==' ') {x1=simbolo_2; break;}
+                    else if (coord_bot==2 && x2==' ') {x2=simbolo_2; break;}
+                    else if (coord_bot==3 && x3==' ') {x3=simbolo_2; break;}
+                    else if (coord_bot==4 && x4==' ') {x4=simbolo_2; break;}
+                    else if (coord_bot==5 && x5==' ') {x5=simbolo_2; break;}
+                    else if (coord_bot==6 && x6==' ') {x6=simbolo_2; break;}
+                    else if (coord_bot==7 && x7==' ') {x7=simbolo_2; break;}
+                    else if (coord_bot==8 && x8==' ') {x8=simbolo_2; break;}
+                    else if (coord_bot==9 && x9==' ') {x9=simbolo_2; break;}
+                }
+
                 std::cout <<"\nBot hizo su jugada "<<endl;
-                
+                turn=false; player_1=true; // turn ->cancela el loop para imprimir el tablero; player_1 -> da el truno al jugador                 
             }
-            
         }
-    
     }
 }
