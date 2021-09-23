@@ -306,7 +306,7 @@ int main() { //Introducción de variables
                 prioridad_bot = false; // restablece la prioridad por si en una condicional se encontro una jugada ganadora
                 //idenfica la casilla ganadora del jugador o prioriza la ficha ganadora de la máquina. Si prioridad_bot es falso buscará las siguientes jugadas donde el jugador pueda ganar y colocará su ficha, si encuentra una jugada donde la máquina gane prioridad_bot será verdadero y las demás busquedas ya no se harán. Al no encontrar nada pasará al loop de jugada random    
                 if (x1==x2 && x3==' ' && x1!=' ' && prioridad_bot==false) { 
-                    if (x3 == simbolo_2) {prioridad_bot=true;} 
+                    if (x1 == simbolo_2) {prioridad_bot=true;} 
                     numero='1'; letra='C'; 
                     jugada_random = false; // para cancelar el loop de buscar una jugada random
                 } 
